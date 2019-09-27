@@ -33,7 +33,7 @@ namespace SqlRefresh
 
 			// this is a bit stupid that you need to use the full resource id, but it works
 			log.LogInformation("Getting SQL Server");			
-			string serverId = "/subscriptions/6e92cf2b-40a1-4f12-99ea-b5d7dfc9c89d/resourceGroups/SpendOps/providers/Microsoft.Sql/servers/willsfluentdb";
+			string serverId = $"/subscriptions/{_config["azureSubscription"]}/resourceGroups/{_config["azureResourceGroupName"]}/providers/Microsoft.Sql/servers/{_config["sqlServerName"]}";
 
 			var server = await azure.SqlServers.GetByIdAsync(serverId);
 
